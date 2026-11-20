@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ===========================================================
+     A PROJECT PAGE. Every project page has the same layout.
+     To make a new one: copy this file, rename it, and change the text.
+     "../" in links means "go up one folder", because this file
+     lives inside the projects/ folder.
+     =========================================================== -->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The cost of a nudge · Jade Cruz</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <a class="name" href="../index.html">Jade Cruz</a>
+      <div class="links">
+        <a href="../index.html">Home</a>
+        <a href="../projects.html">Projects</a>
+        <a href="https://github.com/jcruz62">GitHub</a>
+        <button id="theme-button" aria-label="Switch dark mode">☾</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== TOP OF THE PROJECT ===== -->
+  <header class="container narrow project-top">
+    <a href="../projects.html">‹ All projects</a>
+    <p class="kind ml" style="font-weight: 600; margin-top: 24px;">Machine Learning · In progress</p>
+    <h1>The cost of a nudge.</h1>
+    <p class="question">Can a machine learning policy send fewer walking reminders while keeping their estimated benefit on short-term physical activity?</p>
+    <p class="grey" style="font-size: 15px; margin-bottom: 20px;">Course project for Web Mining &amp; Recommender Systems, UC San Diego.</p>
+    <div class="row"><span class="pill">Python</span><span class="pill">Off-policy evaluation</span><span class="pill">mHealth</span><span class="pill">In progress</span></div>
+  </header>
+
+  <div class="container narrow">
+    <!-- Key numbers. Delete this whole <div> if you don't want it. -->
+    <div class="big-numbers">
+      <div><b style="color:var(--purple)">193,723</b><span class="grey">Decision points</span></div>
+      <div><b style="color:var(--purple)">294</b><span class="grey">Participants</span></div>
+    </div>
+</div>
+
+  <!-- ===== THE WRITE-UP ===== -->
+  <section class="section white">
+    <div class="container writeup">
+
+      <h2>The problem</h2>
+      <p>Activity reminders in mobile health (mHealth) apps help only some of the time, and too many lead people to tune them out. A policy that sends fewer, better-timed reminders could keep the benefit at a lower cost to the user.</p>
+
+      <h2>The data</h2>
+      <p>The myBPmyLife micro-randomized trial (294 participants, 193,723 decision points, steps in the 60 minutes after each decision), with HeartSteps V1 as a backup dataset.</p>
+
+      <h2>Methods</h2>
+      <p>Each reminder is treated as a send-or-stay-silent decision. Because reminders were randomized, the logged send probabilities allow new policies to be evaluated off-policy with inverse probability weighting. An uncertainty-aware policy is compared with practical baselines on held-out participants, with cluster bootstrap confidence intervals.</p>
+
+      <h2>Findings</h2>
+      <p>In progress. The data audit is complete.</p>
+
+      <div class="tech-box">
+        <p class="grey" style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em;">FOR THE TECHNICAL READER</p>
+        <p style="font-size: 17px; margin-top: 12px;">Splits are made by participant so that evaluation is on entirely unseen people. A null result, where no policy beats a simple rule, is treated as a valid outcome.</p>
+      </div>
+
+      <h2>Next steps</h2>
+      <p>Replicate the published average effect, build the baseline policies, then tune and compare the uncertainty-aware policy at matched notification budgets.</p>
+
+      <p class="grey" style="font-size: 15px; margin-top: 40px;">On the knowledge map: Collaborative Filtering · Model Evaluation</p>
+      <p style="margin-top: 16px;"><a class="button" href="https://github.com/jcruz62/selective-mhealth-notifications">View code on GitHub</a></p>
+    </div>
+  </section>
+
+  <div class="bottom-links">
+    <div class="container">
+      <a href="../projects.html">‹ All projects</a>
+      <a href="breast-cancer.html">Next: Breast cancer risk prediction ›</a>
+    </div>
+  </div>
+
+  <script src="../js/theme.js"></script>
+</body>
+</html>

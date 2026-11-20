@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ===========================================================
+     A PROJECT PAGE. Every project page has the same layout.
+     To make a new one: copy this file, rename it, and change the text.
+     "../" in links means "go up one folder", because this file
+     lives inside the projects/ folder.
+     =========================================================== -->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iModulon transcriptomics of A. baumannii · Jade Cruz</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <a class="name" href="../index.html">Jade Cruz</a>
+      <div class="links">
+        <a href="../index.html">Home</a>
+        <a href="../projects.html">Projects</a>
+        <a href="https://github.com/jcruz62">GitHub</a>
+        <button id="theme-button" aria-label="Switch dark mode">☾</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== TOP OF THE PROJECT ===== -->
+  <header class="container narrow project-top">
+    <a href="../projects.html">‹ All projects</a>
+    <p class="kind bio" style="font-weight: 600; margin-top: 24px;">Genomics · Transcriptomics</p>
+    <h1>iModulon transcriptomics of A. baumannii.</h1>
+    <p class="question">What regulatory programs drive gene expression in the multidrug-resistant pathogen Acinetobacter baumannii, and how do they relate to each other?</p>
+    <p class="grey" style="font-size: 15px; margin-bottom: 20px;">Course project for Systems Biology &amp; Bioengineering II, UC San Diego (Winter 2026).</p>
+    <div class="row"><span class="pill">Python</span><span class="pill">ICA</span><span class="pill">RNA-seq</span><span class="pill">PCA</span></div>
+  </header>
+
+  <div class="container narrow">
+    <!-- Key numbers. Delete this whole <div> if you don't want it. -->
+    <div class="big-numbers">
+      <div><b style="color:var(--green)">1,498</b><span class="grey">RNA-seq samples</span></div>
+      <div><b style="color:var(--green)">252</b><span class="grey">Co-regulated gene modules</span></div>
+      <div><b style="color:var(--green)">66%</b><span class="grey">Expression variance explained</span></div>
+    </div>
+</div>
+
+  <!-- ===== THE WRITE-UP ===== -->
+  <section class="section white">
+    <div class="container writeup">
+
+      <h2>The problem</h2>
+      <p>Acinetobacter baumannii is a multidrug-resistant, hospital-acquired pathogen. Knowing which groups of genes switch on and off together can point to how it adapts to stress and survives treatment.</p>
+
+      <h2>The data</h2>
+      <p>1,498 public RNA sequencing (RNA-seq) samples from 136 independent projects in the National Center for Biotechnology Information (NCBI) databases, covering 3,718 genes.</p>
+
+      <h2>Methods</h2>
+      <p>Independent component analysis (ICA) factored the expression matrix into iModulons: sets of genes that rise and fall together because a shared regulator controls them. Relationships between iModulons were measured at the sample, condition, and within-project levels, with project-level bootstrap confidence intervals. Principal component analysis and k-means clustering described condition structure. 705 experimental conditions were curated for iModulonDB.</p>
+
+      <h2>Findings</h2>
+      <p>Ribosome and ATP synthase activity rose and fell together (r = 0.71; 95% confidence interval, 0.61 to 0.79), and the relationship went the same direction in 86% of individual studies, matching the known link between growth and energy supply. Arsenic resistance and type IV pili were inversely related (r = -0.32), suggesting a possible stress-versus-motility trade-off, though it was less consistent across studies.</p>
+
+      <div class="tech-box">
+        <p class="grey" style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em;">FOR THE TECHNICAL READER</p>
+        <p style="font-size: 17px; margin-top: 12px;">The database was uploaded to iModulonDB and passed its validator with no failed checks. Unlike principal components, independent components are chosen to be statistically independent, which tends to line up with real regulators.</p>
+      </div>
+
+      <h2>Next steps</h2>
+      <p>Test whether arsenic exposure reduces pili expression and biofilm formation in a controlled experiment.</p>
+
+      <p class="grey" style="font-size: 15px; margin-top: 40px;">On the knowledge map: Gene Regulatory Networks · Large-Scale Data Analysis</p>
+      <p style="margin-top: 16px;"><a class="button" href="https://github.com/jcruz62/imodulon-transcriptomics-analysis">View code on GitHub</a></p>
+    </div>
+  </section>
+
+  <div class="bottom-links">
+    <div class="container">
+      <a href="../projects.html">‹ All projects</a>
+      <a href="motif-finder.html">Next: Genomic pattern recognition tool ›</a>
+    </div>
+  </div>
+
+  <script src="../js/theme.js"></script>
+</body>
+</html>
