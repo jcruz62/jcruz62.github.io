@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ===========================================================
+     A PROJECT PAGE. Every project page has the same layout.
+     To make a new one: copy this file, rename it, and change the text.
+     "../" in links means "go up one folder", because this file
+     lives inside the projects/ folder.
+     =========================================================== -->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Renewable energy permits and carbon emissions · Jade Cruz</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <a class="name" href="../index.html">Jade Cruz</a>
+      <div class="links">
+        <a href="../index.html">Home</a>
+        <a href="../projects.html">Projects</a>
+        <a href="https://github.com/jcruz62">GitHub</a>
+        <button id="theme-button" aria-label="Switch dark mode">☾</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== TOP OF THE PROJECT ===== -->
+  <header class="container narrow project-top">
+    <a href="../projects.html">‹ All projects</a>
+    <p class="kind stats" style="font-weight: 600; margin-top: 24px;">Statistics · Policy</p>
+    <h1>Renewable energy permits and carbon emissions.</h1>
+    <p class="question">How did residential renewable energy installations change in Sacramento and Rancho Cordova from 2020 to 2024, and what does that mean for carbon dioxide emissions?</p>
+    <p class="grey" style="font-size: 15px; margin-bottom: 20px;">Research Analyst, California Homebuilding Foundation.</p>
+    <div class="row"><span class="pill">Python</span><span class="pill">pandas</span><span class="pill">Scenario analysis</span></div>
+  </header>
+
+  <div class="container narrow">
+    <!-- Key numbers. Delete this whole <div> if you don't want it. -->
+    <div class="big-numbers">
+      <div><b style="color:var(--blue)">12 → 819</b><span class="grey">Sacramento EV charger permits, 2020 to 2024</span></div>
+      <div><b style="color:var(--blue)">−85%</b><span class="grey">Rancho Cordova solar installations</span></div>
+    </div>
+</div>
+
+  <!-- ===== THE WRITE-UP ===== -->
+  <section class="section white">
+    <div class="container writeup">
+
+      <h2>The problem</h2>
+      <p>Local governments track renewable energy adoption to plan for emissions targets. Permit data show what is actually being built, and which parts of the transition are stalling.</p>
+
+      <h2>The data</h2>
+      <p>Construction Industry Research Board (CIRB) residential building permits for Sacramento and Rancho Cordova, 2020 to 2024.</p>
+
+      <h2>Methods</h2>
+      <p>Permit counts were summarized by year and type. Carbon dioxide (CO2) effects were recalculated under low, central, and high assumptions, with every assumption listed in the code.</p>
+
+      <h2>Findings</h2>
+      <p>Electric vehicle (EV) charger permits grew sharply (Sacramento: 12 to 819), while solar photovoltaic installations fell 17% in Sacramento and 85% in Rancho Cordova. Under central assumptions, new chargers avoid about 3,362 tonnes of CO2 per year, while fewer solar installations lose about 738 tonnes of offset per year.</p>
+
+      <div class="tech-box">
+        <p class="grey" style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em;">FOR THE TECHNICAL READER</p>
+        <p style="font-size: 17px; margin-top: 12px;">The largest uncertainty is how many gasoline cars each new charger permit replaces (0.5 to 3), which drives the wide low-to-high range (1,405 to 10,223 tonnes per year). Raw CIRB data are not redistributed.</p>
+      </div>
+
+      <h2>Next steps</h2>
+
+      <p class="grey" style="font-size: 15px; margin-top: 40px;">On the knowledge map: Data Visualization</p>
+      <p style="margin-top: 16px;"><a class="button" href="https://github.com/jcruz62/ca-renewable-permits">View code on GitHub</a></p>
+    </div>
+  </section>
+
+  <div class="bottom-links">
+    <div class="container">
+      <a href="../projects.html">‹ All projects</a>
+      <a href="glp1-nhis.html">Next: GLP-1 medication use and mental health ›</a>
+    </div>
+  </div>
+
+  <script src="../js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+/* =========================================================
+   map.css  —  how the knowledge map LOOKS
+   (colors like var(--blue) come from style.css)
+   ========================================================= */
+
+/* ---------- the two degree tabs ---------- */
+.map-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px;
+  margin: 32px auto 0;
+  width: max-content;
+  max-width: 100%;
+  background: var(--fill);
+  border-radius: 980px;
+}
+.map-tab {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 980px;
+  background: transparent;
+  color: var(--text2);
+}
+.map-tab small { font-size: 12px; font-weight: 500; margin-left: 6px; }
+.map-tab:hover { color: var(--text); }
+.map-tab[aria-selected="true"] {           /* the tab that's open */
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- legend under the buttons ---------- */
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  font-size: 13px;
+  color: var(--text2);
+  margin: 16px 0 20px;
+}
+.swatch {
+  display: inline-block;
+  width: 22px;
+  height: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--line2);
+  vertical-align: middle;
+  margin-right: 6px;
+}
+.swatch.dashed { border-style: dashed; }
+.swatch.dotted { border-style: dotted; }
+
+/* ---------- the map box ---------- */
+#map-box {
+  flex: 3 1 560px;
+  min-width: 0;
+  height: 660px;
+  position: relative;
+  overflow: hidden;              /* hides bubbles that are outside the box */
+  background: var(--fill);
+  border-radius: 28px;
+  cursor: grab;
+  touch-action: none;            /* lets us handle dragging and pinching ourselves */
+  user-select: none;
+}
+#map-box.dragging { cursor: grabbing; }
+
+#map-world {                     /* everything inside moves and zooms together */
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+}
+#map-lines {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+#map-lines line { stroke: var(--line2); stroke-width: 1.5; }
+#map-lines line.hot { stroke-width: 2.5; }
+
+/* ---------- the bubbles ---------- */
+.map-node {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 44px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  border: 1px solid var(--line);
+  border-radius: 980px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s, opacity 0.2s, background 0.2s;
+}
+.map-node:hover { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); }
+.map-node .dot { margin-right: 0; }
+
+.map-node.hub {                  /* the degree in the middle */
+  height: 60px;
+  padding: 0 24px;
+  font-size: 19px;
+  font-weight: 700;
+  border: none;
+  color: var(--on-accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+.map-node.hub small { font-size: 12px; font-weight: 500; opacity: 0.85; }
+
+.map-node.work { border-style: dashed; border-color: var(--line2); }   /* jobs and research */
+.map-node.later { border-style: dotted; border-color: var(--line2); color: var(--text2); }   /* upcoming or self-study */
+
+.map-node.topic {                /* the skills */
+  height: 36px;
+  padding: 0 13px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.map-node .count { font-size: 12px; font-weight: 500; color: var(--text2); }
+.map-node .plus  { font-size: 15px; color: var(--text2); width: 12px; text-align: center; }
+
+.map-node.selected {             /* the bubble you clicked */
+  background: var(--c);
+  border-color: var(--c);
+  color: var(--on-accent);
+}
+.map-node.selected .dot { background: var(--on-accent) !important; }
+.map-node.selected .count,
+.map-node.selected .plus { color: var(--on-accent); }
+.map-node.near { border-color: var(--c); }      /* connected to the selected one */
+.map-node.faded { opacity: 0.5; }
+
+/* ---------- zoom buttons (bottom-right of the map) ---------- */
+.map-zoom {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 2;
+}
+.map-zoom button {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 20px;
+  cursor: pointer;
+}
+.map-zoom button:hover { background: var(--fill-hover); }
+.map-zoom .fit { font-size: 12px; font-weight: 600; }
+
+.map-hint {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  font-size: 12px;
+  color: var(--text2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  border-radius: 980px;
+  pointer-events: none;
+}
+
+#map-panel .row { gap: 8px; }
+#map-panel .chip { padding: 8px 14px; display: inline-flex; align-items: center; }
+
+/* ---------- layout: map on the left, description on the right ----------
+   "grid" makes two columns: the map takes the leftover space (1fr),
+   the description panel is a fixed 360px wide. */
+.map-area {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 24px;
+  align-items: start;
+  max-width: 1240px;
+  margin: 32px auto 0;
+  padding: 0 22px;
+}
+#map-panel {
+  position: sticky;        /* the description stays in view while you scroll */
+  top: 76px;               /* just below the top navigation bar */
+  min-height: 300px;
+}
+
+/* On phones and small windows, stack them: map first, description below. */
+@media (max-width: 900px) {
+  .map-area { grid-template-columns: 1fr; }
+  #map-panel { position: static; min-height: 0; }
+  #map-box { height: 520px; }
+}

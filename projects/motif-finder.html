@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ===========================================================
+     A PROJECT PAGE. Every project page has the same layout.
+     To make a new one: copy this file, rename it, and change the text.
+     "../" in links means "go up one folder", because this file
+     lives inside the projects/ folder.
+     =========================================================== -->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Genomic pattern recognition tool · Jade Cruz</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="container">
+      <a class="name" href="../index.html">Jade Cruz</a>
+      <div class="links">
+        <a href="../index.html">Home</a>
+        <a href="../projects.html">Projects</a>
+        <a href="https://github.com/jcruz62">GitHub</a>
+        <button id="theme-button" aria-label="Switch dark mode">☾</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== TOP OF THE PROJECT ===== -->
+  <header class="container narrow project-top">
+    <a href="../projects.html">‹ All projects</a>
+    <p class="kind bio" style="font-weight: 600; margin-top: 24px;">Genomics · Software</p>
+    <h1>Genomic pattern recognition tool.</h1>
+    <p class="question">Can a simple, general tool find promoters, enhancers, and silencers in any organism's DNA and tell real signals from chance matches?</p>
+    <p class="grey" style="font-size: 15px; margin-bottom: 20px;">Started as a team project, led by Jade Cruz, at UC Santa Cruz.</p>
+    <div class="row"><span class="pill">Python</span><span class="pill">Command-line tool</span><span class="pill">Team lead</span></div>
+  </header>
+
+  <div class="container narrow">
+    <!-- Key numbers. Delete this whole <div> if you don't want it. -->
+    <div class="big-numbers">
+      <div><b style="color:var(--green)">10 of 10</b><span class="grey">Planted sites recovered</span></div>
+      <div><b style="color:var(--green)">2.5×</b><span class="grey">−35 promoter box enrichment</span></div>
+    </div>
+</div>
+
+  <!-- ===== THE WRITE-UP ===== -->
+  <section class="section white">
+    <div class="container writeup">
+
+      <h2>The problem</h2>
+      <p>Short regulatory motifs match by chance all over a genome. A tool that only lists matches can mislead, so it needs to say which matches stand out from the background.</p>
+
+      <h2>The data</h2>
+      <p>A synthetic test set with motifs planted at known positions, and the 154,478 base pair Arabidopsis thaliana chloroplast genome (GenBank NC_000932) as a real test.</p>
+
+      <h2>Methods</h2>
+      <p>The tool scans deoxyribonucleic acid (DNA) sequences in FASTA files on both strands, using a built-in motif library, custom motifs in International Union of Pure and Applied Chemistry (IUPAC) notation, and position weight matrices. Enrichment is tested against sequences generated from a first-order Markov model that keeps base and dinucleotide composition.</p>
+
+      <h2>Findings</h2>
+      <p>All 10 planted sites were recovered at the exact positions and strands. In the chloroplast genome, every bacterial-style promoter element was more common upstream of real genes than in random windows; the −35 box was 2.5 times more common (p = .004). The scan found the promoter of psbA, one of the best-characterized chloroplast promoters.</p>
+
+      <div class="tech-box">
+        <p class="grey" style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em;">FOR THE TECHNICAL READER</p>
+        <p style="font-size: 17px; margin-top: 12px;">Reverse-strand matches are reported in forward-strand coordinates, palindromic sites are counted once, and overlapping matches are kept. Outputs include every hit, observed-versus-expected counts with p-values, and a motif map figure. Unit tests cover the core functions.</p>
+      </div>
+
+      <h2>Next steps</h2>
+
+      <p class="grey" style="font-size: 15px; margin-top: 40px;">On the knowledge map: Motif Finding · Python</p>
+      <p style="margin-top: 16px;"><a class="button" href="https://github.com/jcruz62/genomic-pattern-recognition">View code on GitHub</a></p>
+    </div>
+  </section>
+
+  <div class="bottom-links">
+    <div class="container">
+      <a href="../projects.html">‹ All projects</a>
+      <a href="renewable-permits.html">Next: Renewable energy permits and carbon emissions ›</a>
+    </div>
+  </div>
+
+  <script src="../js/theme.js"></script>
+</body>
+</html>
